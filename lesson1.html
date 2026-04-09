@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Health Ed - Lesson 1: Understanding Change</title>
+<style>
+  :root {
+    --bg: #faf8f5;
+    --card-bg: #ffffff;
+    --accent: #5b7a6b;
+    --accent-light: #e8f0eb;
+    --text: #2d2d2d;
+    --text-light: #666;
+    --border: #e0dcd7;
+    --highlight: #f0e6d3;
+    --correct: #4a8c5c;
+    --incorrect: #c0564a;
+    --faith: #6b5b8a;
+    --faith-light: #f0ecf5;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  h1 { font-size: 1.8em; text-align: center; margin-bottom: 5px; color: var(--accent); }
+  .subtitle { text-align: center; color: var(--text-light); font-style: italic; margin-bottom: 30px; font-size: 0.95em; }
+  .toc { background: var(--accent-light); border-radius: 10px; padding: 20px 25px; margin-bottom: 30px; }
+  .toc h2 { font-size: 1.1em; margin-bottom: 10px; color: var(--accent); }
+  .toc ol { padding-left: 20px; }
+  .toc li { margin-bottom: 5px; font-size: 0.95em; }
+  .toc a { color: var(--accent); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  .section { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 25px; margin-bottom: 25px; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+  .section h2 { font-size: 1.25em; color: var(--accent); border-bottom: 2px solid var(--accent-light); padding-bottom: 8px; margin-bottom: 15px; }
+  .section h3 { font-size: 1.05em; color: var(--text); margin: 15px 0 8px; }
+  .key-point { background: var(--highlight); border-left: 4px solid var(--accent); padding: 12px 16px; margin: 12px 0; border-radius: 0 8px 8px 0; font-size: 0.95em; }
+  .key-point strong { color: var(--accent); }
+  ul.bullets { padding-left: 22px; margin: 8px 0; }
+  ul.bullets li { margin-bottom: 6px; font-size: 0.95em; }
+  .faith-note { background: var(--faith-light); border-left: 4px solid var(--faith); padding: 14px 18px; margin: 15px 0; border-radius: 0 8px 8px 0; font-size: 0.93em; }
+  .faith-note strong { color: var(--faith); }
+  .faith-note .verse { font-style: italic; color: var(--faith); }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 12px 0; }
+  .col-card { background: var(--accent-light); border-radius: 10px; padding: 15px; }
+  .col-card h4 { color: var(--accent); margin-bottom: 8px; font-size: 1em; }
+  .col-card ul { padding-left: 18px; }
+  .col-card li { font-size: 0.9em; margin-bottom: 4px; }
+  .term-def { margin: 10px 0; padding: 10px 14px; background: #f9f8f6; border-radius: 8px; border: 1px solid var(--border); }
+  .term-def strong { color: var(--accent); }
+  .quiz-table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+  .quiz-table th { background: var(--accent); color: white; padding: 10px 14px; text-align: left; font-size: 0.9em; }
+  .quiz-table td { padding: 12px 14px; border-bottom: 1px solid var(--border); font-size: 0.93em; vertical-align: top; }
+  .quiz-table tr:last-child td { border-bottom: none; }
+  .badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-weight: bold; font-size: 0.85em; color: white; }
+  .badge-true { background: var(--correct); }
+  .badge-false { background: var(--incorrect); }
+  .worksheet-section { background: #fefcf7; border: 2px dashed var(--accent); border-radius: 10px; padding: 20px; margin: 15px 0; }
+  .worksheet-section h3 { color: var(--accent); margin-top: 0; }
+  .sample-answer { background: var(--accent-light); border-radius: 8px; padding: 12px 16px; margin: 8px 0; font-style: italic; font-size: 0.93em; }
+  .tip-box { background: #fff8e1; border-left: 4px solid #f5a623; padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 12px 0; font-size: 0.93em; }
+  footer { text-align: center; color: var(--text-light); font-size: 0.85em; margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border); }
+  nav.lesson-nav { display: flex; justify-content: space-between; margin-bottom: 20px; font-size: 0.9em; }
+  nav.lesson-nav a { color: var(--accent); text-decoration: none; }
+  nav.lesson-nav a:hover { text-decoration: underline; }
+  @media (max-width: 600px) {
+    body { padding: 12px; }
+    .section { padding: 16px; }
+    .two-col { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="lesson-nav">
+  <a href="index.html">&larr; Lesson 0: Getting Started</a>
+  <span></span>
+</nav>
+
+<h1>Lesson 1: Understanding Change</h1>
+<p class="subtitle">Positive Prevention Plus &mdash; Health Education Study Guide</p>
+
+<nav class="toc">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#story">The Story: How Embarrassing!</a></li>
+    <li><a href="#puberty-female">How Bodies Change During Puberty (Female)</a></li>
+    <li><a href="#puberty-male">How Bodies Change During Puberty (Male)</a></li>
+    <li><a href="#emotions">How Puberty Affects Your Emotions</a></li>
+    <li><a href="#terms">Understanding the Terms</a></li>
+    <li><a href="#normal">Activity: Am I "Normal?"</a></li>
+    <li><a href="#bias">LGBTQ+ Bias and Effects</a></li>
+    <li><a href="#story2">The Story: What They Learned</a></li>
+    <li><a href="#quiz">Worksheet Answers</a></li>
+    <li><a href="#homework">Homework</a></li>
+  </ol>
+</nav>
+
+<!-- Section 1: Story intro -->
+<div class="section" id="story">
+  <h2>1. The Story: How Embarrassing!</h2>
+  <p>In the animated video, students are lined up in math class to calculate mean, median, and mode using their heights. Johnny is the tallest (about 5 feet), Esther is the shortest (about 4 feet), and Ryan is the average.</p>
+  <div class="key-point">
+    <strong>The point:</strong> Everyone felt a little embarrassed because their physical differences were being pointed out. During puberty, people grow at very different rates &mdash; some are tall, some are short, and that's all completely normal.
+  </div>
+</div>
+
+<!-- Section 2: Female puberty changes -->
+<div class="section" id="puberty-female">
+  <h2>2. How Bodies Change During Puberty (Female)</h2>
+  <p>During puberty, the female body goes through many changes driven by hormones (estrogen and progesterone, produced in the ovaries):</p>
+  <ul class="bullets">
+    <li><strong>Hormone production</strong> &mdash; the ovaries produce estrogen and progesterone, which trigger other changes. Female bodies also produce a small amount of testosterone.</li>
+    <li><strong>Breast development</strong> &mdash; increased estrogen stimulates breast tissue growth. It's normal for breasts to develop at different rates or be slightly different sizes during puberty.</li>
+    <li><strong>Wider hips (larger pelvis)</strong> &mdash; estrogen causes the pelvis to broaden in preparation for potential pregnancy and childbirth later in life.</li>
+    <li><strong>Body hair</strong> &mdash; hair appears in varying amounts on the body, underarms, and around the genitals.</li>
+    <li><strong>Body odor</strong> &mdash; increased sweat gland activity, especially during stress, causes body odor. (This is why deodorant becomes important!)</li>
+    <li><strong>Menstruation (getting a period)</strong> &mdash; a monthly discharge of blood and fluid from the uterus lining, generally occurring about 14 days after ovulation. This varies with age, stress, exercise, and body weight.</li>
+  </ul>
+</div>
+
+<!-- Section 3: Male puberty changes -->
+<div class="section" id="puberty-male">
+  <h2>3. How Bodies Change During Puberty (Male)</h2>
+  <p>During puberty, the male body also goes through many changes driven by hormones (testosterone, produced in the testicles):</p>
+  <ul class="bullets">
+    <li><strong>Increased hormones</strong> &mdash; testosterone is produced in the testicles and circulates through the bloodstream. Male bodies also produce a small amount of estrogen.</li>
+    <li><strong>Deeper voice</strong> &mdash; testosterone thickens the vocal cords, causing the voice to deepen. This may happen gradually or come and go at first (voice "cracking").</li>
+    <li><strong>Muscular development</strong> &mdash; testosterone stimulates muscle growth.</li>
+    <li><strong>Larger genitals</strong> &mdash; the penis and testicles grow larger.</li>
+    <li><strong>Body hair</strong> &mdash; hair appears on the body, face, underarms, and around the genitals.</li>
+    <li><strong>Body odor</strong> &mdash; same as females, increased sweat gland activity causes body odor.</li>
+    <li><strong>Nocturnal emissions (wet dreams)</strong> &mdash; spontaneous ejaculation during sleep, which is completely normal and may or may not wake you up.</li>
+    <li><strong>Slight breast enlargement</strong> &mdash; 40-60% of boys experience some breast enlargement during puberty, which usually goes away.</li>
+  </ul>
+
+  <div class="tip-box">
+    <strong>Remember:</strong> Puberty can start anywhere from age 10 to 16. Everyone is different, and there's no "right" time for it to begin. It's all part of God's design for how our bodies grow.
+  </div>
+</div>
+
+<!-- Section 4: Emotions -->
+<div class="section" id="emotions">
+  <h2>4. How Puberty Affects Your Emotions</h2>
+  <p>Puberty doesn't just change your body &mdash; it also affects how you feel:</p>
+  <ul class="bullets">
+    <li><strong>Mood swings</strong> &mdash; fluctuating hormone levels can cause sudden changes in emotions like anger or sadness. This is normal and will settle down over time.</li>
+    <li><strong>Interest in relationships</strong> &mdash; physical and emotional changes naturally lead to new feelings of attraction to others.</li>
+    <li><strong>Changes in parent-child relationships</strong> &mdash; as you grow more independent, your relationship with your parents may shift. This is a normal part of growing up.</li>
+    <li><strong>Concerns with body image</strong> &mdash; you might worry about developing too early or too late, or not looking like others or like people in the media.</li>
+  </ul>
+  <div class="key-point">
+    <strong>It's all normal.</strong> These emotional changes are a natural part of growing up. Talk to your parents or a trusted adult when things feel overwhelming &mdash; they went through the same thing!
+  </div>
+</div>
+
+<!-- Section 5: Terms -->
+<div class="section" id="terms">
+  <h2>5. Understanding the Terms</h2>
+  <p>There are many terms related to gender and sexuality that people often confuse. It's important to understand what they mean, even if you don't agree with everything the world says about them.</p>
+
+  <h3>Basic Terms</h3>
+  <div class="term-def"><strong>Sex:</strong> Whether a person is biologically male or female.</div>
+  <div class="term-def"><strong>Intersex:</strong> A person born with biological characteristics that don't fit the typical definitions of male or female. (This is rare.)</div>
+  <div class="term-def"><strong>Gender:</strong> Characteristics and behaviors that a culture associates with being male or female.</div>
+
+  <h3>Identity and Expression</h3>
+  <div class="term-def"><strong>Gender Identity:</strong> A person's internal, deeply-felt sense of being male or female (or sometimes something in between).</div>
+  <div class="term-def"><strong>Gender Expression:</strong> The way a person shows their gender through appearance, speech, behavior, or movement.</div>
+  <div class="term-def"><strong>Gender Role:</strong> Behaviors, activities, and attitudes that society considers appropriate for men or women. These can vary between cultures.</div>
+
+  <h3>More Terms</h3>
+  <div class="term-def"><strong>Gender Non-Conformity:</strong> Behavior or appearance that doesn't match what society expects for a person's gender.</div>
+  <div class="term-def"><strong>Gender Binary:</strong> The system that categorizes gender into only two options &mdash; male or female.</div>
+  <div class="term-def"><strong>Gender Expansive:</strong> A broader, more flexible range of gender identities beyond the male/female binary.</div>
+  <div class="term-def"><strong>Cisgender:</strong> A person whose gender identity matches the sex they were assigned at birth.</div>
+  <div class="term-def"><strong>Transgender:</strong> A person whose gender identity differs from the sex they were assigned at birth.</div>
+  <div class="term-def"><strong>Sexual Orientation:</strong> A person's enduring romantic or sexual attraction to others. Common terms include heterosexual (straight), homosexual (gay/lesbian), and bisexual.</div>
+
+  <div class="key-point">
+    <strong>Why learn these terms?</strong> These are not the same things &mdash; they represent different dimensions of human sexuality. Even if you disagree with some of these ideas, understanding the vocabulary helps you have informed conversations and navigate the world around you.
+  </div>
+
+  <div class="faith-note">
+    <strong>&#x271A; A Note for Our Family:</strong><br><br>
+    As Christians, we believe God created male and female <span class="verse">(Genesis 1:27)</span>, and the Bible is clear about His design for gender and sexuality. We recognize that the world holds different views, but from a Biblical perspective, these are considered sin.<br><br>
+    That said, we do not condemn people &mdash; they are our brothers and sisters whom we love. We do not accept the sin itself, but we see them as people who can be freed from it and return to Jesus. We treat everyone with kindness and respect, and we trust that through knowing Christ, they too can come into His embrace.<br><br>
+    <em>Love the person. Pray for their salvation.</em>
+  </div>
+</div>
+
+<!-- Section 6: Am I Normal? -->
+<div class="section" id="normal">
+  <h2>6. Activity: Am I "Normal?"</h2>
+  <p>The lesson presents a thought experiment:</p>
+  <div class="key-point">
+    <strong>Imagine</strong> you just landed on a different planet where all the inhabitants look very different from you. They're shocked by how you look, and you're shocked by how they look. They want you to explain why you look the way you do.
+  </div>
+  <p><strong>How would you respond?</strong> You might say:</p>
+  <ul class="bullets">
+    <li>"This is normal for me. This is the way I was born."</li>
+    <li>"I don't know, I just do."</li>
+    <li>"Everyone on my planet looks like this."</li>
+  </ul>
+  <p><strong>How would it make you feel?</strong> Probably awkward, confused, or uncomfortable.</p>
+  <div class="key-point">
+    <strong>The lesson:</strong> Everyone looks different and grows at different rates. Being kind to people who are different from you is important &mdash; because to someone else, <em>you</em> might be the "different" one.
+  </div>
+</div>
+
+<!-- Section 7: LGBTQ+ -->
+<div class="section" id="bias">
+  <h2>7. LGBTQ+ Bias and Effects</h2>
+  <p><strong>LGBTQ+</strong> stands for Lesbian, Gay, Bisexual, Transgender, and Queer/Questioning.</p>
+  <p>The lesson teaches that most LGBTQ+ students have experienced:</p>
+  <ul class="bullets">
+    <li>Harassment and discrimination at school</li>
+    <li>Family rejection, homelessness, and mental health struggles</li>
+    <li>Hostile school environments that affect their ability to succeed</li>
+  </ul>
+  <p>LGBTQ+ students are protected by <strong>Title IX</strong> (a federal law protecting against discrimination in schools).</p>
+
+  <div class="key-point">
+    <strong>The lesson's message:</strong> "Don't judge." Because sexual orientation, gender identity, and gender expression vary with each individual, it is important to be accepting of others and celebrate diversity.
+  </div>
+
+  <div class="faith-note">
+    <strong>&#x271A; Our Family's Perspective:</strong><br><br>
+    No one &mdash; regardless of who they are &mdash; should be bullied, harassed, or made to feel unsafe. As Christians, we are especially called to show love and compassion to everyone.<br><br>
+    While we recognize the world's views, our faith teaches that God's design for sexuality is between a man and a woman in marriage. We see those who identify as LGBTQ+ not as enemies, but as brothers and sisters whom we love. We do not accept the sin, but we love the person and hope that through knowing Jesus Christ, they can find their true identity in Him.<br><br>
+    <em>Always be kind. Never bully. Show Christ's love through your actions.</em>
+  </div>
+</div>
+
+<!-- Section 8: Story part 2 -->
+<div class="section" id="story2">
+  <h2>8. The Story: What the Characters Learned</h2>
+  <p>In the second half of the animated video, the characters reflect on the math class exercise:</p>
+  <ul class="bullets">
+    <li><strong>"That was so embarrassing."</strong> &mdash; One student felt awkward having their height compared.</li>
+    <li><strong>"Would you like to have your differences pointed out?"</strong> &mdash; They realized that pointing out differences can make people uncomfortable.</li>
+    <li><strong>"We're all different, you know?"</strong> &mdash; They supported each other and celebrated their differences.</li>
+  </ul>
+  <div class="key-point">
+    <strong>Takeaway:</strong> Everyone has differences. Having friends who are supportive and accept you for who you are makes a big difference. Being kind and celebrating differences leads to positive friendships and a better world.
+  </div>
+</div>
+
+<!-- Section 9: Quiz -->
+<div class="section" id="quiz">
+  <h2>9. Worksheet Answers (Lesson Wrap-Up)</h2>
+
+  <h3>Part I &mdash; True or False</h3>
+  <table class="quiz-table">
+    <thead>
+      <tr>
+        <th style="width:48%">Statement</th>
+        <th style="width:12%">Answer</th>
+        <th>Why?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>"Sexual orientation" and "gender identity" mean the same thing.</td>
+        <td><span class="badge badge-false">FALSE</span></td>
+        <td><strong>Sexual orientation</strong> is about who you are attracted to. <strong>Gender identity</strong> is about which gender you personally identify as. They are two different things.</td>
+      </tr>
+      <tr>
+        <td>Changes during puberty in both male and female bodies include hormone production, the appearance of body hair, and body odor.</td>
+        <td><span class="badge badge-true">TRUE</span></td>
+        <td>All three &mdash; hormones, body hair, and body odor &mdash; are changes that happen to <strong>both</strong> males and females during puberty.</td>
+      </tr>
+      <tr>
+        <td>It is important to respect differences and appreciate diversity because gender role, gender identity, and sexual orientation vary with each individual.</td>
+        <td><span class="badge badge-true">TRUE</span></td>
+        <td>Everyone is different. Respecting those differences is important &mdash; even when we don't agree with someone's views or choices, we treat them with kindness.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="worksheet-section">
+    <h3>Part II &mdash; What was the most important thing you learned?</h3>
+    <p>Write what YOU think was most important. Sample answer:</p>
+    <div class="sample-answer">
+      "I learned that puberty affects everyone differently &mdash; both physically and emotionally. It's normal to develop at different rates, and it's important to be kind to others who may be going through changes too. I also learned the difference between sexual orientation and gender identity."
+    </div>
+  </div>
+
+  <div class="worksheet-section">
+    <h3>Part III &mdash; How positive are you about being non-judgmental?</h3>
+    <p>"How positive are you that you can be non-judgmental regarding other people's sexual orientation and gender roles?"</p>
+    <p>Circle 1 (Not Positive) to 5 (Very Positive).</p>
+    <p>As Christians, we can confidently answer <strong>4 or 5</strong> &mdash; we are called to love everyone and not judge others, even when we disagree. Being non-judgmental toward people doesn't mean accepting everything &mdash; it means treating everyone with respect and dignity.</p>
+  </div>
+
+  <div class="worksheet-section">
+    <h3>Part IV &mdash; Ask a Parent or Trusted Adult</h3>
+    <ul class="bullets">
+      <li>Review your completed worksheets from this lesson together</li>
+      <li><strong>Ask:</strong> "What age did you start seeing changes in your body?"</li>
+      <li><strong>Ask:</strong> "What types of health issues run in our family?" (e.g., breast cancer, prostate cancer)</li>
+    </ul>
+    <p><em>Get their signature on the worksheet!</em></p>
+  </div>
+</div>
+
+<!-- Section 10: Homework -->
+<div class="section" id="homework">
+  <h2>10. Homework</h2>
+  <ul class="bullets">
+    <li>Complete the <strong>Lesson Wrap-Up worksheet</strong> (answers above!)</li>
+    <li>Complete the <strong>Sexual Development worksheet</strong></li>
+    <li><strong>Discuss with a parent</strong> and get their signature</li>
+    <li>Submit on Schoology</li>
+  </ul>
+</div>
+
+<footer>
+  Study guide for Lesson 1: Understanding Change<br>
+  Source: Positive Prevention Plus (2018)
+</footer>
+
+</body>
+</html>
