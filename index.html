@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Health Ed - Lesson 0: Getting Started</title>
+<style>
+  :root {
+    --bg: #faf8f5;
+    --card-bg: #ffffff;
+    --accent: #5b7a6b;
+    --accent-light: #e8f0eb;
+    --text: #2d2d2d;
+    --text-light: #666;
+    --border: #e0dcd7;
+    --highlight: #f0e6d3;
+    --correct: #4a8c5c;
+    --incorrect: #c0564a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  h1 {
+    font-size: 1.8em;
+    text-align: center;
+    margin-bottom: 5px;
+    color: var(--accent);
+  }
+  .subtitle {
+    text-align: center;
+    color: var(--text-light);
+    font-style: italic;
+    margin-bottom: 30px;
+    font-size: 0.95em;
+  }
+  .toc {
+    background: var(--accent-light);
+    border-radius: 10px;
+    padding: 20px 25px;
+    margin-bottom: 30px;
+  }
+  .toc h2 {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: var(--accent);
+  }
+  .toc ol {
+    padding-left: 20px;
+  }
+  .toc li {
+    margin-bottom: 5px;
+    font-size: 0.95em;
+  }
+  .toc a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .toc a:hover { text-decoration: underline; }
+  .section {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  }
+  .section h2 {
+    font-size: 1.25em;
+    color: var(--accent);
+    border-bottom: 2px solid var(--accent-light);
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+  }
+  .section h3 {
+    font-size: 1.05em;
+    color: var(--text);
+    margin: 15px 0 8px;
+  }
+  .section img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    margin: 10px 0;
+    display: block;
+  }
+  .key-point {
+    background: var(--highlight);
+    border-left: 4px solid var(--accent);
+    padding: 12px 16px;
+    margin: 12px 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.95em;
+  }
+  .key-point strong { color: var(--accent); }
+  ul.bullets {
+    padding-left: 22px;
+    margin: 8px 0;
+  }
+  ul.bullets li {
+    margin-bottom: 6px;
+    font-size: 0.95em;
+  }
+  .stat-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: var(--accent-light);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 12px 0;
+  }
+  .stat-number {
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--accent);
+    min-width: 90px;
+    text-align: center;
+  }
+  .stat-desc { font-size: 0.95em; }
+  /* Quiz section */
+  .quiz-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+  }
+  .quiz-table th {
+    background: var(--accent);
+    color: white;
+    padding: 10px 14px;
+    text-align: left;
+    font-size: 0.9em;
+  }
+  .quiz-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.93em;
+    vertical-align: top;
+  }
+  .quiz-table tr:last-child td { border-bottom: none; }
+  .badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 0.85em;
+    color: white;
+  }
+  .badge-true { background: var(--correct); }
+  .badge-false { background: var(--incorrect); }
+  .worksheet-section {
+    background: #fefcf7;
+    border: 2px dashed var(--accent);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 15px 0;
+  }
+  .worksheet-section h3 {
+    color: var(--accent);
+    margin-top: 0;
+  }
+  .sample-answer {
+    background: var(--accent-light);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 8px 0;
+    font-style: italic;
+    font-size: 0.93em;
+  }
+  .tip-box {
+    background: #fff8e1;
+    border-left: 4px solid #f5a623;
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    margin: 12px 0;
+    font-size: 0.93em;
+  }
+  .resources a {
+    color: var(--accent);
+    font-weight: bold;
+  }
+  footer {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 0.85em;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+  @media (max-width: 600px) {
+    body { padding: 12px; }
+    .section { padding: 16px; }
+    .stat-box { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Lesson 0: Getting Started</h1>
+<p class="subtitle">Positive Prevention Plus &mdash; Health Education Study Guide</p>
+
+<nav class="toc">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#intro">What This Course Is About</a></li>
+    <li><a href="#objectives">Today's Learning Objectives</a></li>
+    <li><a href="#discussion">Why It Can Be Hard to Talk About Health Topics</a></li>
+    <li><a href="#agreements">Group Agreements</a></li>
+    <li><a href="#facts">Facts About Teen Health in the U.S.</a></li>
+    <li><a href="#improve">How Teens Can Stay Healthy</a></li>
+    <li><a href="#resources">Trusted Resources (Always With a Parent)</a></li>
+    <li><a href="#story">The Story: What the Characters Learned</a></li>
+    <li><a href="#quiz">Worksheet Answers</a></li>
+    <li><a href="#homework">Homework</a></li>
+  </ol>
+</nav>
+
+<!-- Section 1: Introduction -->
+<div class="section" id="intro">
+  <h2>1. What This Course Is About</h2>
+  <p>This course is called <strong>Comprehensive Sexual Health Education</strong>. It covers important topics to help you understand your body, stay safe, and make good decisions as you grow up.</p>
+
+  <h3>Topics you'll learn about in this unit:</h3>
+  <ul class="bullets">
+    <li><strong>Puberty and how the body changes</strong> as you grow</li>
+    <li><strong>Friendship, dating, love, and commitment</strong> &mdash; healthy relationships</li>
+    <li><strong>Bullying and risky behaviors</strong> &mdash; how to recognize and avoid them</li>
+    <li><strong>Human trafficking</strong> &mdash; awareness and staying safe</li>
+    <li><strong>Abstinence</strong> &mdash; choosing to wait and setting boundaries</li>
+    <li><strong>Health protection methods</strong> &mdash; how people protect their health</li>
+    <li><strong>HIV/AIDS and STI prevention</strong> &mdash; understanding and avoiding diseases</li>
+    <li><strong>Goal setting and decision-making</strong></li>
+  </ul>
+
+  <div class="key-point">
+    <strong>Meet the characters:</strong> In the animated video, students named Esther, Johnny, Aman, Sarah, and Ryan are called to the principal's office. The principal asks them to help create a new health education program. At first they're nervous, but they realize they have a lot of good questions and it's perfectly normal to want to learn about these topics.
+  </div>
+</div>
+
+<!-- Section 2: Learning Objectives -->
+<div class="section" id="objectives">
+  <h2>2. Today's Learning Objectives</h2>
+  <p>By the end of this lesson, you should be able to:</p>
+  <ul class="bullets">
+    <li><strong>Identify and follow</strong> class guidelines for appropriate behavior</li>
+    <li><strong>Complete a self-assessment</strong> of what you already know</li>
+    <li><strong>Identify facts</strong> related to teen health</li>
+    <li><strong>Identify ways</strong> to improve teen health</li>
+  </ul>
+</div>
+
+<!-- Section 3: Why it's hard to discuss -->
+<div class="section" id="discussion">
+  <h2>3. Why It Can Be Hard to Talk About Health Topics</h2>
+  <p>Many people find it difficult to discuss sexual health. Here's why:</p>
+  <ul class="bullets">
+    <li>These are <strong>very private and personal</strong> topics</li>
+    <li>People sometimes worry about being seen as <strong>"normal" or "not normal"</strong></li>
+    <li>Views can vary between different <strong>family cultures and religions</strong></li>
+  </ul>
+  <div class="key-point">
+    <strong>Remember:</strong> It's completely normal to feel a little awkward or embarrassed. That's okay! The important thing is to learn accurate information and to talk with your parents or a trusted adult when you have questions.
+  </div>
+</div>
+
+<!-- Section 4: Group Agreements -->
+<div class="section" id="agreements">
+  <h2>4. Group Agreements</h2>
+  <p>When discussing these topics in a group, everyone should follow these rules:</p>
+  <ul class="bullets">
+    <li><strong>One person speaks at a time</strong> &mdash; listen to each other</li>
+    <li><strong>No name calling</strong> &mdash; everyone should feel safe and comfortable</li>
+    <li><strong>Respect differences</strong> &mdash; people have different cultures, religions, and personal views</li>
+    <li><strong>Use proper language</strong> &mdash; learn and use the correct terms</li>
+    <li><strong>All questions are okay</strong> &mdash; there are no "dumb" questions</li>
+    <li><strong>No personal stories</strong> &mdash; keep things general in a classroom setting</li>
+    <li><strong>Protect privacy</strong> &mdash; if someone shares something, don't spread it around</li>
+  </ul>
+  <div class="tip-box">
+    <strong>Exception:</strong> If you feel like a friend is in danger, it IS important to tell a parent or teacher so they can get help.
+  </div>
+</div>
+
+<!-- Section 5: Facts -->
+<div class="section" id="facts">
+  <h2>5. Facts About Teen Health in the U.S.</h2>
+  <p>Here are some important statistics about teens in the United States:</p>
+
+  <div class="stat-box">
+    <div class="stat-number">60.8%</div>
+    <div class="stat-desc">
+      <strong>Most teens have NOT had sex.</strong><br>
+      Only 39.2% of teens have ever had sex. The majority (60.8%) have not. Being "sexually active" (recent activity) is even lower &mdash; only about 20%.
+    </div>
+  </div>
+
+  <div class="key-point">
+    <strong>Key takeaway:</strong> Despite what media or peer pressure might suggest, <em>most teens are choosing to wait</em>. You are not alone if you choose abstinence. Waiting is the safest and most responsible choice.
+  </div>
+
+  <h3>Why protection matters</h3>
+  <p>Among those teens who are sexually active, the lesson showed these statistics:</p>
+
+  <div class="stat-box">
+    <div class="stat-number">46.2%</div>
+    <div class="stat-desc">
+      <strong>Nearly half don't use condoms.</strong><br>
+      Of teens who have had sex, 46.2% did NOT use condoms. That's a huge risk for diseases (STIs) and unplanned pregnancy.
+    </div>
+  </div>
+
+  <div class="stat-box">
+    <div class="stat-number">13.8%</div>
+    <div class="stat-desc">
+      <strong>Some don't use any birth control at all.</strong><br>
+      13.8% of sexually active teens used no form of birth control. Having a baby is one of the biggest responsibilities in life &mdash; no one should take that lightly.
+    </div>
+  </div>
+
+  <div class="key-point">
+    <strong>The bottom line:</strong> Abstinence (choosing to wait) is the best way to protect yourself. But if someone does become sexually active, it is absolutely essential to use protection. Being uninformed or careless about this can lead to life-changing consequences &mdash; STIs, and the enormous responsibility of an unplanned pregnancy. <em>Knowledge protects you.</em>
+  </div>
+</div>
+
+<!-- Section 6: How to improve -->
+<div class="section" id="improve">
+  <h2>6. How Teens Can Stay Healthy</h2>
+  <p>There are several ways you can take care of your health:</p>
+  <ul class="bullets">
+    <li><strong>Increase your knowledge</strong> &mdash; that's exactly what this course is for! Making informed decisions starts with understanding the facts</li>
+    <li><strong>Have open conversations with your parents or a trusted adult</strong> &mdash; they can help guide you and answer your questions</li>
+    <li><strong>Access health and counseling services when needed</strong> &mdash; there are professionals who can help</li>
+    <li><strong>Learn to make your own healthy decisions</strong> &mdash; know that you can say "no" and stick to what you're comfortable with</li>
+    <li><strong>Be aware of pressure</strong> from peers and media, and develop the confidence to resist it</li>
+  </ul>
+  <div class="key-point">
+    <strong>You have the right to say "no"</strong> to anything you're not comfortable with. A healthy decision is one that aligns with your values and keeps you safe.
+  </div>
+</div>
+
+<!-- Section 7: Resources -->
+<div class="section" id="resources">
+  <h2>7. Trusted Resources (Always With a Parent)</h2>
+  <p>If you need reliable information online, here are three trustworthy websites:</p>
+  <ul class="bullets resources">
+    <li><a href="https://www.cdc.gov/sexualhealth/" target="_blank">CDC &mdash; Centers for Disease Control</a> (www.cdc.gov/sexualhealth/)</li>
+    <li><a href="https://www.familypact.org" target="_blank">Family Pact</a> (www.familypact.org)</li>
+    <li><a href="https://www.rainn.org" target="_blank">RAINN &mdash; National Sexual Assault Hotline</a> (www.rainn.org)</li>
+  </ul>
+
+  <div class="tip-box">
+    <strong>Important warning from the lesson:</strong> There are many websites on the internet that give <strong>false or dangerous</strong> information about sexual health. It's very important to <strong>always do your research with a parent or trusted adult</strong>. They can help you find accurate information and stay safe online.
+  </div>
+</div>
+
+<!-- Section 8: Story -->
+<div class="section" id="story">
+  <h2>8. The Story: What the Characters Learned</h2>
+  <p>At the beginning of the lesson, the animated characters (Esther, Johnny, Aman, and friends) were called to the principal's office. They were nervous! But the principal just wanted their help creating a health education program.</p>
+
+  <h3>In the second half of the story:</h3>
+  <ul class="bullets">
+    <li>The students realized they actually had <strong>a lot of questions</strong> they wanted answers to</li>
+    <li>Topics they wanted to learn about: <strong>relationships</strong>, STIs, and staying safe</li>
+    <li>One student said "you're a girl" when a girl brought up STIs &mdash; and the others corrected him: <strong>"What does that have to do with anything? It's important for everyone to know."</strong></li>
+    <li>They felt a little embarrassed at first, but supported each other: <strong>"We're all in this together."</strong></li>
+    <li>They realized it's great to learn about this in school, AND <strong>they can always talk with their parents or a trusted adult too</strong></li>
+  </ul>
+
+  <div class="key-point">
+    <strong>The lesson from the story:</strong> It's normal to feel awkward or nervous about these topics. But asking questions and learning is important &mdash; and you're never alone. Your parents and teachers are there to help.
+  </div>
+</div>
+
+<!-- Section 9: Quiz / Worksheet Answers -->
+<div class="section" id="quiz">
+  <h2>9. Worksheet Answers (Lesson Wrap-Up)</h2>
+
+  <h3>Part I &mdash; True or False</h3>
+  <table class="quiz-table">
+    <thead>
+      <tr>
+        <th style="width:50%">Statement</th>
+        <th style="width:12%">Answer</th>
+        <th>Why?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>More than half the teens in the US are sexually active.</td>
+        <td><span class="badge badge-false">FALSE</span></td>
+        <td>Only about 20% of teens are sexually active. Even "ever had sex" is only 39.2% &mdash; still less than half. <strong>Most teens have NOT had sex.</strong></td>
+      </tr>
+      <tr>
+        <td>It can be difficult to talk about sexual health because this topic is associated with being "normal" or "not normal."</td>
+        <td><span class="badge badge-true">TRUE</span></td>
+        <td>Many people find it hard to discuss because they worry about being judged as "normal" or "not normal." Family culture and religion also play a role.</td>
+      </tr>
+      <tr>
+        <td>Group agreements include protecting another student's privacy when statements are made during class.</td>
+        <td><span class="badge badge-true">TRUE</span></td>
+        <td>"Protect privacy" is one of the 7 group agreements. If someone shares something in class, you should not tell others about it.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="worksheet-section">
+    <h3>Part II &mdash; What was the most important thing you learned?</h3>
+    <p>Write what YOU think was most important or interesting. Here's a sample answer to help you get started:</p>
+    <div class="sample-answer">
+      "I learned that most teens in the U.S. have not had sex, which is different from what I expected. I also learned that it's important to talk to my parents or a trusted adult when I have questions about health, instead of just searching the internet on my own."
+    </div>
+  </div>
+
+  <div class="worksheet-section">
+    <h3>Part III &mdash; How positive are you about following group agreements?</h3>
+    <p>Circle a number from 1 (Not Positive) to 5 (Very Positive).</p>
+    <p>The group rules are reasonable and respectful &mdash; things like listening, not calling names, and protecting privacy. A good answer would be <strong>4 or 5</strong>.</p>
+  </div>
+
+  <div class="worksheet-section">
+    <h3>Part IV &mdash; Ask a Parent or Trusted Adult</h3>
+    <p>Discuss your worksheet with your parent and ask them:</p>
+    <ul class="bullets">
+      <li>Review the Group Agreements together</li>
+      <li>Go over the Lesson Wrap-Up and Pre-Test</li>
+      <li><strong>Ask: "What grade were you in when you received sex education?"</strong></li>
+    </ul>
+    <p><em>Remember to get their signature on the worksheet!</em></p>
+  </div>
+</div>
+
+<!-- Section 10: Homework -->
+<div class="section" id="homework">
+  <h2>10. Homework</h2>
+  <ul class="bullets">
+    <li>Complete the <strong>Lesson Wrap-Up worksheet</strong> (the answers are above!)</li>
+    <li><strong>Discuss with a parent or trusted adult</strong> and get their signature</li>
+    <li>Complete the <strong>Pre-Test</strong> (self-assessment of what you already know)</li>
+    <li>Submit your worksheet</li>
+  </ul>
+</div>
+
+<footer>
+  Study guide for Lesson 0: Getting Started<br>
+  Source: Positive Prevention Plus (2018)
+</footer>
+
+</body>
+</html>
